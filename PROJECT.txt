@@ -1,22 +1,15 @@
-ECHO LEDGER
+ECHO LEDGER: BURROW PROTOCOL / v2
 Built by 0xRicher
 
-PITCH
-In a neon city that audits every footstep, your past self is your most valuable ally. Record a movement route and release a physical echo that powers relays, distracts auditors, and opens forgotten memory vaults. Recover fragments, upgrade your courier, and push deeper into procedurally generated sectors. Every run asks a new question: what path will you leave behind?
+Static release of wusjwu/echo-ledger main at 9fe2018604e4462836198e13da282286f52bc6ac.
 
-SUBMISSION DESCRIPTION
-Echo Ledger is an original neon salvage game where recorded movement becomes a playable resource. Guide a tiny courier through procedural sectors, capture routes, and release looping echoes to power relays, distract auditors, and unlock memory vaults. Balance replay energy, dodge pulsing hazards, collect fragments, and purchase six upgrade types between sectors. Rising difficulty, recovered story fragments, synthesized sound, touch controls, and local high scores support repeat play. Built by 0xRicher, this self-contained static website requires no backend, account, or external assets.
+Record movement, release cooperating echoes, power relay puzzles, recover memories and deliver the ledger. Three biomes, the Auditor General boss, eight upgrade branches, codex, achievements, six pickup types, Story and Shared Block modes, local records and synthesized sound are retained.
 
-FEATURES
-- Movement recording and time-limited looping echoes
-- Persistent echo-powered relays, memory vaults and sector uplinks
-- Procedural connected sectors with rising difficulty
-- Chasing auditors, patrolling sentinels and pulsing hazards
-- Energy management, invulnerable dash and repair pickups
-- Fragment currency and six upgrade types, each with three levels
-- Eight sector names and eight collectible story fragments
-- Sector completion bonuses and local top-five high scores
-- Title, field guide, pause, game-over and About screens
-- Responsive keyboard and mobile touch controls
-- Mutable WebAudio effects and saved sound preferences
-- Self-drawn Canvas/CSS art; no CDNs or runtime dependencies
+Squeekchain public wheel telemetry drives energy, settlement Surges, lore and optional map seeds. Network failures switch to labeled practice. Game SQK is fictional. No wallet, account, signatures, transactions, chain deployment or visitor tracking.
+
+Complete static export: dist/
+Runtime source: index.html, style.css, game.js, telemetry.js, assets/
+Build/tool lockfile: web/
+Install, preview and rebuild: README.md
+Final design system: DESIGN.md
+Worker checks and limitations: artifacts/validation.md

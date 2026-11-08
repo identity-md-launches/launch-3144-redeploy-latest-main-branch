@@ -1,0 +1,17 @@
+{
+  "name": "echo-ledger-static",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Reproducible static export of Echo Ledger: Burrow Protocol",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --project tsconfig.json",
+    "preview": "node preview.mjs",
+    "test": "node ../tests/interactions.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.0",
+    "playwright": "1.64.0",
+    "typescript": "5.9.3"
+  }
+}

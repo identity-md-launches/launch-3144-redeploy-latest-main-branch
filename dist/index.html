@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Echo Ledger: Burrow Protocol">
+<meta property="og:description" content="Record your route. Coordinate your echoes. Reclaim the burrow in this free Squeekchain community game.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./assets/share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Echo Ledger: Burrow Protocol, an echo-replay adventure">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101321">
+<meta name="description" content="Echo Ledger: Burrow Protocol. An original echo-replay adventure powered by Squeektoshi's live wheel telemetry. A community project for Squeekchain Genesis.">
+<title>Echo Ledger: Burrow Protocol • Squeekchain community game</title>
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body data-screen="title">
+<a class="skip-link" href="#viewport">Skip to game</a>
+<div class="shell">
+<header>
+<a class="brand" href="#" id="home">
+<span class="brand-mark">e↳</span>
+<span>Echo Ledger<small>Burrow Protocol</small>
+</span>
+</a>
+<nav aria-label="Game controls">
+<button id="codexBtn">Codex <span id="codexCount">0/9</span>
+</button>
+<button id="helpBtn" aria-label="How to play"><span class="help-label">How to play</span><span class="help-icon" aria-hidden="true">?</span></button>
+<button id="soundBtn" aria-pressed="false">Sound off</button>
+<button id="pauseBtn" aria-label="Pause game" disabled>Ⅱ</button>
+</nav>
+</header>
+<section class="network" aria-label="Squeekchain live telemetry">
+<div class="signal-heading">
+<span id="liveBadge" class="badge simulated">Connecting</span>
+<strong>Squeektoshi’s wheel</strong>
+<button id="retryBtn" aria-label="Refresh public data" title="Refresh public data">↻</button>
+</div>
+<div class="network-stats">
+<span id="wheelStat">Idle <b>0 RPM</b>
+</span>
+<span>Settled <b id="anchorStat">—</b>
+</span>
+<span>Projected <b id="projectedStat">—</b>
+</span>
+<span>Distance <b id="distanceStat">—</b>
+</span>
+<span class="supply-stat">SQK supply <b id="supplyStat">—</b>
+</span>
+</div>
+<p id="signalEffect">Connecting to the public Squeekchain API. Simulation keeps the burrow playable.</p>
+</section>
+<main>
+<div class="hud">
+<div class="contract">
+<span class="eyebrow">Courier contract</span>
+<strong id="sectorText">01 / Wheel Core</strong>
+<small id="sectorSub">Your past self is your partner.</small>
+</div>
+<div class="stat">
+<span>Integrity</span>
+<strong id="healthText">♥ ♥ ♥ ♥</strong>
+</div>
+<div class="stat energy">
+<span>Echo energy <b id="energyText">100%</b>
+</span>
+<div class="meter">
+<i id="energyBar">
+</i>
+</div>
+<small id="regenText">+5.0 / second</small>
+</div>
+<div class="stat">
+<span>Game SQK ◆</span>
+<strong id="moneyText">0</strong>
+</div>
+<div class="stat score">
+<span>Score</span>
+<strong id="scoreText">00000</strong>
+</div>
+</div>
+<section class="viewport" id="viewport" tabindex="-1" aria-label="Echo Ledger game">
+<canvas id="game" width="1000" height="720" tabindex="0" aria-describedby="objectiveText" aria-label="Burrow arena. Use WASD to move, R to record or release, Shift to dash and E to purge.">Use WASD or arrows to move, R to record and release, Shift to dash, and E to purge. The field guide explains relay puzzles.</canvas>
+<div id="message" class="toast" role="status" aria-live="polite">
+</div>
+<div id="surgeBanner" class="surge-banner hidden">SETTLEMENT SURGE</div>
+<div class="arena-top">
+<span id="mode">TWO ECHO SLOTS / READY</span>
+<span id="seedLabel">STORY EXPEDITION</span>
+</div>
+<div class="objective">
+<span class="dot">
+</span>
+<span id="objectiveText">Record. Replay. Reclaim the ledger.</span>
+</div>
+<div id="bossHud" class="boss-hud hidden">
+<span>THE AUDITOR GENERAL <b id="bossPhase">2 ECHOES → BREAK ARMOR</b>
+</span>
+<div class="boss-meter">
+<i id="bossBar">
+</i>
+</div>
+</div>
+<div id="title" class="overlay title-screen">
+<div class="title-copy">
+<h1>Small paws.<br>
+<i>Parallel lives.</i>
+</h1>
+<p class="lead">An echo-replay adventure beneath Squeektoshi’s wheel. Record your route, coordinate your past selves, and reclaim the burrow.</p>
+<div class="mode-select" role="group" aria-label="Run mode">
+<button id="storyMode" class="selected" aria-pressed="true">Story expedition<small>Three biomes. Your own route.</small>
+</button>
+<button id="sharedMode" aria-pressed="false">Shared Block<small>Same settled block. Same map.</small>
+</button>
+</div>
+<div class="title-actions">
+<button id="startBtn" class="primary">Enter the burrow <span>→</span>
+</button>
+<button id="titleHelp">Field guide</button>
+</div>
+<p class="title-hint">Move with WASD or the touch pad. R records and releases.</p>
+<p id="bestTitle" class="best">PERSONAL BEST / 00000</p>
+</div>
+<div class="title-art" aria-hidden="true">
+<div class="wheel-orbit">
+<div class="wheel-spokes">
+</div>
+<img class="hamster" src="./assets/hamster.svg" alt="" width="100" height="90">
+</div>
+<span class="art-work">Squeektoshi’s wheel<br>
+<b>One living heartbeat</b>
+</span>
+<div class="route-art">
+<i>01</i>
+<i>02</i>
+<i>03</i>
+</div>
+<div class="mouse-art"><img src="./assets/courier.svg" alt="" width="100" height="70"><small>Courier / 0x01</small>
+</div>
+<div class="ghost-art"><img src="./assets/courier.svg" alt="" width="64" height="45"></div>
+<span class="art-label">Your echoes carry the proof.</span>
+</div>
+<div class="title-bottom">
+<span>Record → Replay → Reclaim</span>
+<span>Built by 0xRicher</span>
+</div>
+</div>
+<div id="pause" class="overlay modal hidden">
+<div class="panel">
+<h2>Courier on break.</h2>
+<p>Your run is paused. Live telemetry continues; settlement events wait for your return.</p>
+<button id="resumeBtn" class="primary">Resume delivery →</button>
+<button id="retireBtn">Finish & view run summary</button>
+<button id="pauseGuide">Open field guide</button>
+<button id="pauseCodex">Open codex</button>
+<button id="restartBtn">New expedition</button>
+</div>
+</div>
+<div id="guide" class="overlay modal hidden">
+<div class="panel wide">
+<h2>Your echoes do the work.</h2>
+<div class="guide-grid">
+<article>
+<b>01 / Record & replay</b>
+<p>Move with WASD / arrows. Press R or Space to record, then again to release. A stationary recording works: stand inside a cyan ring, record for a second, release. Only echoes power relays. A route loops for 32+ seconds.</p>
+</article>
+<article>
+<b>02 / Work together</b>
+<p>You start with TWO echo slots. Regular relays latch. Paired seals must each hold a different echo at the same time for 2 seconds. The General needs both seals held repeatedly to break three armor plates. Record a short echo on each seal.</p>
+</article>
+<article>
+<b>03 / Deliver & upgrade</b>
+<p>Power all relays, collect amber memory vaults, then reach the green uplink. Collect game SQK fragments to buy eight upgrade branches. These are fictional points, not real SQK. Every fifth sector is a boss encounter.</p>
+</article>
+<article>
+<b>04 / Survive the burrow</b>
+<p>Shift dashes; E uses a purge charge to stun nearby threats. Echoes distract Auditors, stun Fork Rats, ground Wraiths and lure Gas Leeches. Collect repair, battery, shield, overclock and purge items. Mobile: movement pad and action buttons.</p>
+</article>
+<article>
+<b>05 / Squeektoshi matters</b>
+<p>Live ACTIVE state and RPM boost energy regeneration. Confirmed new settlements cause 12-second Surges: bonus SQK drops, energy refill, enemy stun and longer echoes. Settled height seeds optional Shared Block maps; projected height is never called settled.</p>
+</article>
+<article>
+<b>06 / A living ledger</b>
+<p>Cumulative real wheel distance unlocks codex chapters and improves your lore-recovery score bonus. Sepolia settlement links appear below. Network failure switches to a clearly labeled SIMULATED feed; no wallet, keys or transactions are needed.</p>
+</article>
+</div>
+<div class="guide-note">P / Esc: pause · M: sound · C: codex. Recording costs 6 energy upfront + 6 per second; max 10 seconds. Touch movement and keyboard actions work together. Shared Block is a local challenge, not a multiplayer leaderboard.</div>
+<button id="closeGuide" class="primary">Ready to deliver →</button>
+</div>
+</div>
+<div id="codex" class="overlay modal hidden">
+<div class="panel wide">
+<div class="panel-heading">
+<div>
+<h2>Proof of a small life.</h2>
+</div>
+<button id="closeCodex">Close ×</button>
+</div>
+<div class="codex-tabs" role="group" aria-label="Codex category">
+<button id="loreTab" class="selected" aria-pressed="true">Lore</button>
+<button id="enemyTab" aria-pressed="false">Threats</button>
+<button id="featTab" aria-pressed="false">Achievements</button>
+</div>
+<div id="codexContent" class="codex-content">
+</div>
+<p class="fine">Lore is fictional; protocol notes describe public data. Progress is saved on this device. Real distance unlocks are never awarded from simulation.</p>
+</div>
+</div>
+<div id="shop" class="overlay modal hidden">
+<div class="panel shop-panel">
+<h2>Build a better echo.</h2>
+<p id="shopSummary">
+</p>
+<div id="upgrades" class="upgrade-grid">
+</div>
+<div class="shop-footer">
+<span id="shopMoney">
+</span>
+<button id="shopCodex">Open codex</button>
+<button id="nextBtn" class="primary">Next delivery →</button>
+</div>
+</div>
+</div>
+<div id="gameover" class="overlay modal hidden">
+<div class="panel wide">
+<h2 id="endLabel">Every step leaves proof.</h2>
+<p id="endSummary">
+</p>
+<div class="summary-grid" id="summaryGrid">
+</div>
+<div class="end-score" id="endScore">
+</div>
+<div id="leaderboard" class="leaderboard">
+</div>
+<button id="againBtn" class="primary">Send another courier →</button>
+<button id="summaryCodex">Open codex</button>
+<button id="summaryHome">Return to title</button>
+</div>
+</div>
+</section>
+<div class="bottom-bar">
+<span>
+<kbd>WASD</kbd> Move <kbd>R</kbd> Record / release <kbd>Shift</kbd> Dash <kbd>E</kbd> Purge</span>
+<span id="statusText">2 ECHO SLOTS · 2 PURGES</span>
+</div>
+<div class="touch-controls">
+<div id="joystick" role="group" aria-label="Touch movement pad. Keyboard alternative: WASD or arrow keys.">
+<i id="stick">
+</i>
+<span>Move</span>
+</div>
+<div class="touch-actions">
+<button id="touchPause">Pause</button>
+<button id="touchPurge" aria-label="Purge nearby enemies">Purge</button>
+<button id="touchDash">Dash</button>
+<button id="touchRecord">Record ●</button>
+</div>
+</div>
+<section class="ledger-panel" aria-label="Recent Squeekchain settlements">
+<div class="ledger-heading">
+<h2>
+<span class="dot">
+</span> Ledger feed <small id="feedSource">CONNECTING</small>
+</h2>
+<span>Confirmed work powers tactical surges</span>
+</div>
+<div id="ledgerFeed" class="ledger-feed">
+<p>Waiting for Squeekchain's public Sepolia ledger…</p>
+</div>
+<div class="ledger-note">
+<span id="feedNote">Reading /v1/settlements. No wallet required.</span>
+<a href="https://squeekchain.com/genesis/code" target="_blank" rel="noopener noreferrer">Explore Squeekchain Genesis ↗</a>
+</div>
+</section>
+</main>
+<footer>
+<span>Community project for Squeekchain Genesis · Not officially affiliated.</span>
+<span>Built by 0xRicher <b>Burrow Protocol / v2.0</b>
+</span>
+</footer>
+</div>
+<noscript>
+<p class="noscript">Echo Ledger needs JavaScript to play. Enable it and reload this page.</p>
+</noscript>
+<script src="./telemetry.js">
+</script>
+<script src="./game.js">
+</script>
+</body>
+</html>
+

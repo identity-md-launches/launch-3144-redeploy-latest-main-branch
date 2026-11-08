@@ -1,31 +1,10 @@
-# Local verification
+# Verification
 
-Tested using headless Chromium through Playwright, served by Python's static HTTP server. Verification completed on November 8, 2026 (JST).
+The current v2 release was built, typechecked, rendered and exercised in Chromium on 2026-11-08. See [artifacts/validation.md](artifacts/validation.md) for the consolidated six-domain review, actual commands, source findings/fixes and limitations.
 
-## Browser smoke tests
-- Desktop: 1440 × 1100 viewport.
-- Mobile emulation: 390 × 844 viewport, touch enabled.
-- Opened title, field guide and About; verified creator credit.
-- Simulated several seconds of keyboard movement and recording/release; verified echo creation and energy use.
-- Exercised dash, pause/resume and mute.
-- Exercised mobile recording and a real pointer drag with capture on the movement pad; verified courier movement.
-- Mobile document has no horizontal overflow.
-- Inspected title and gameplay screenshots; separately checked small-screen title content does not overlap its footer.
-- Final browser runs reported zero JavaScript or console errors.
+- [Browser results](artifacts/browser-results.json): 27 passing checks; public API transport observation and WebKit limitation are explicitly separate.
+- [Design probe](artifacts/taste-results.json): 16/16 passing checks.
+- [Current screenshots](artifacts/screenshots/): final title, mobile controls, fixture-based gameplay and boss practice.
+- [README](README.md): installation, preview, rebuild and test commands.
 
-## System fixture tests
-Fixtures were injected only into a test browser's intercepted JavaScript response. Production JavaScript was not modified with test cheats.
-- Keyboard recording creates an echo which charges a relay and leaves it online.
-- Upgrade shop purchase deducts the exact price and applies an energy capacity upgrade.
-- Field guide can open over the shop and returns to the same state.
-- Next-sector transition preserves the upgrade and uses its increased energy cap.
-- Fatal damage opens the game-over screen and saves a local high score.
-- Restart resets run-specific upgrades and sector number.
-- Reload restores the saved personal best.
-
-## Fixes during verification
-- Raised field guide/About above later overlays so they remain usable from the shop and game-over screens.
-- Increased relay charging speed so a clean traversal through a relay ring can activate it during one echo pass.
-- Tightened local score validation.
-
-Screenshots are in `screenshots/`. Tests are smoke/system coverage, not exhaustive difficulty balancing or a guarantee of compatibility with every browser.
+The direct public endpoints were reachable from an HTTP client, but Chromium returned `net::ERR_EMPTY_RESPONSE`. No successful public live-service browser check is claimed. WebKit was unavailable because system libraries were missing. Screenshots under the original root `screenshots/` belong to the previous v1 release and are retained as history.

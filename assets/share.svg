@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#0d1120"/>
+<rect x="24" y="24" width="1152" height="582" rx="16" fill="#111e30"/>
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="76" y="105" fill="#edf3f6" font-size="28" font-weight="700">Echo Ledger</text>
+<text x="76" y="137" fill="#a7b7cb" font-size="20">Burrow Protocol</text>
+<text x="76" y="262" fill="#edf3f6" font-size="76" font-weight="700" letter-spacing="-3">Small paws.</text>
+<text x="76" y="347" fill="#ffce77" font-size="76" font-weight="700" letter-spacing="-3">Parallel lives.</text>
+<text x="80" y="409" fill="#c1d0de" font-size="24">Record your route. Let your echoes open the way.</text>
+<text x="80" y="548" fill="#a7b7cb" font-size="20">A Squeekchain community game</text>
+<text x="908" y="548" fill="#a7b7cb" font-size="20">Built by 0xRicher</text>
+</g>
+<g transform="translate(920 240)">
+<circle r="125" fill="none" stroke="#ffce77" stroke-width="5"/>
+<circle r="112" fill="none" stroke="#ffce77" stroke-opacity=".5" stroke-width="2"/>
+<g stroke="#ffce77" stroke-opacity=".25" stroke-width="3">
+<path d="M0-110V110M-110 0H110M-78-78 78 78M-78 78 78-78"/>
+</g>
+<g fill="#c59359" stroke="#ffce77" stroke-width="2">
+<ellipse cy="32" rx="47" ry="40"/><circle cx="-32" cy="-2" r="19"/><circle cx="32" cy="-2" r="19"/>
+</g>
+<g fill="#142a31"><circle cx="-13" cy="27" r="4"/><circle cx="13" cy="27" r="4"/></g><circle cy="44" r="6" fill="#f6ceae"/>
+</g>
+<path d="M803 397h225q40 0 40 35v22q0 25-32 25H836q-42 0-42-35v-10" fill="none" stroke="#62efdc" stroke-width="3" stroke-dasharray="9 7"/>
+<g transform="translate(1025 445)" stroke="#d4fa8a" stroke-width="3"><path d="M-20 0q-45 30-55 0" fill="none"/><ellipse rx="29" ry="18" fill="#d4fa8a"/><circle cx="-2" cy="-16" r="10" fill="#ebadab"/><circle cx="-2" cy="16" r="10" fill="#ebadab"/><circle cx="17" cy="-7" r="3" fill="#142a31"/><circle cx="30" r="4" fill="#ff9ea3"/></g>
+<g transform="translate(859 419)" stroke="#62efdc" stroke-width="2" opacity=".6"><ellipse rx="25" ry="16" fill="#173b3d"/><circle cx="-2" cy="-13" r="8" fill="#173b3d"/><circle cx="-2" cy="13" r="8" fill="#173b3d"/></g>
+</svg>
