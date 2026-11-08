@@ -1,8 +1,8 @@
 # Echo Ledger: Burrow Protocol
 
-**Built by 0xRicher.** A Squeekchain Genesis community game; not officially affiliated.
+**Footer credit: Built by @XiaoLingEr888.** A Squeekchain Genesis community game; not officially affiliated.
 
-This static release updates the existing site to [upstream main at `9fe2018604e4462836198e13da282286f52bc6ac`](https://github.com/wusjwu/echo-ledger/commit/9fe2018604e4462836198e13da282286f52bc6ac), the v2 Burrow Protocol release. The original Canvas, CSS and JavaScript stack is retained. `telemetry.js` is included unchanged from that commit. Interface changes improve mobile controls, readable type, dialog focus, reduced motion and link previews.
+This static release applies the footer update from [latest upstream main at `82a70937e38db6f5d12a91af33cff7c0ce1b9dc9`](https://github.com/wusjwu/echo-ledger/commit/82a70937e38db6f5d12a91af33cff7c0ce1b9dc9). Comparing upstream archives with the previous release confirmed that its only runtime change is this footer credit. The sole runtime edit to the provided site is `Built by 0xRicher` → `Built by @XiaoLingEr888` inside `<footer>`, followed by a production rebuild. The separate title-screen credit still reads `Built by 0xRicher`. Source provenance and the comparison are recorded in [artifacts/upstream.json](artifacts/upstream.json).
 
 The complete production site is in **`dist/`**. Serve its contents together, including `dist/assets/`. All local asset URLs are relative (`./…`), and the release was tested under `/preview/`. No server rewrites, build service, wallet, account or private credentials are needed. Publication of this export happens outside this repository task.
 
@@ -53,7 +53,7 @@ Game SQK is fictional, cannot be redeemed and is unrelated to a wallet balance. 
 
 ## Verification
 
-Actual worker checks on 2026-11-08:
+Actual worker checks for this footer update on 2026-11-08:
 
 | Check | Result |
 | --- | --- |
@@ -62,7 +62,8 @@ Actual worker checks on 2026-11-08:
 | `npm run --prefix web test` | Passed; 27 Chromium browser checks, including 7 axe state audits |
 | Pinned `taste.mjs --out test/scratch/taste` | 16/16 checks passed at 320, 390 and 1440 wide |
 | Additional layout checks | No page overflow at 768/1024 or with 200% root text at 390 |
-| First 390×844 screen | Product title visible; Enter the burrow spans y=654–701 |
+| First 390×844 screen | Product title visible; Enter the burrow spans y=570–617 |
+| Footer and scope | Correct credit visible in mobile/desktop screenshots; HTML differs only in the footer text; all other runtime files match the provided release |
 
 The browser suite serves the **production export at a subpath**, and exercises keyboard and touch input, echo puzzles, paired seals, boss defeat, vault delivery, upgrade purchase/persistence, codex tabs, pause/focus, summaries, local records, Shared Block, fallback and retry. It also makes separate, unintercepted public API observations. It never presents fixture tests as successful live service access.
 
@@ -73,9 +74,9 @@ npm exec --prefix web -- playwright install chromium webkit
 npm run --prefix web test
 ```
 
-Results and temporary screenshots go to `test/scratch/browser-checks/`. The committed worker evidence is [artifacts/validation.md](artifacts/validation.md), [browser-results.json](artifacts/browser-results.json), [taste-results.json](artifacts/taste-results.json) and [screenshots](artifacts/screenshots/). [DESIGN.md](DESIGN.md) records the final implementation.
+Results and temporary screenshots go to `test/scratch/browser-checks/`. The worker review and actual results are recorded with the source in [TESTING.md](TESTING.md). Supplemental outputs are [artifacts/validation.md](artifacts/validation.md), [browser-results.json](artifacts/browser-results.json), [taste-results.json](artifacts/taste-results.json) and [screenshots](artifacts/screenshots/). [DESIGN.md](DESIGN.md) records the final implementation.
 
-**Limitations:** direct public API requests returned HTTP 200 with permissive CORS headers in an HTTP client, but Chromium requests returned `net::ERR_EMPTY_RESPONSE` here. Live-service browser access therefore remains unverified; isolated API fixtures verified its UI and gameplay behavior. The supplied browser tool failed to launch, so local Playwright supplied Chromium rendering and interaction evidence. WebKit could not run because required system libraries were missing. No physical iPhone, screen reader, native browser zoom, exhaustive difficulty balance or full nonvisual canvas accessibility is claimed. See validation for details.
+**Limitations:** unintercepted Chromium requests to all three public API endpoints returned `net::ERR_EMPTY_RESPONSE`; live-service browser access remains unverified. Isolated API fixtures verified the live-data UI and gameplay behavior; ordinary failed reads visibly entered Simulated practice. The supplied browser tool failed to launch, so local Playwright supplied Chromium rendering and interaction evidence. WebKit was installed but could not run because required system libraries were missing. No physical iPhone, screen reader, native browser zoom, exhaustive difficulty balance or full nonvisual canvas accessibility is claimed. See validation for details.
 
 ## Diagnostics and source
 

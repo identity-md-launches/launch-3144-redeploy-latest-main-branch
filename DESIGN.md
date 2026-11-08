@@ -2,7 +2,7 @@
 
 ## Overview
 
-Echo Ledger is a keyboard and touch game about coordinating recorded routes beneath Squeektoshi’s wheel. The existing Burrow Protocol identity is retained: a dark burrow, amber wheel, cyan echo paths and a lime courier. A compact telemetry strip precedes the game; the title screen presents the two modes and one primary “Enter the burrow” action. “Built by 0xRicher” appears on the title surface and in the footer.
+Echo Ledger is a keyboard and touch game about coordinating recorded routes beneath Squeektoshi’s wheel. The existing Burrow Protocol identity is retained: a dark burrow, amber wheel, cyan echo paths and a lime courier. A compact telemetry strip precedes the game; the title screen presents the two modes and one primary “Enter the burrow” action. The footer reads “Built by @XiaoLingEr888” (`index.html:283`); the separate title-surface credit reads “Built by 0xRicher”. This release changes only the footer text and rebuilds the existing export.
 
 The source of truth is `style.css`, with structure in `index.html` and state in `game.js`. The Canvas renderer retains upstream’s three biome palettes and original gameplay geometry. This document describes the implemented source, not a proposed redesign.
 
@@ -27,7 +27,7 @@ Colors use the project’s existing hex notation. Root tokens are in `style.css:
 
 Supporting surfaces use `#111e30` for the title, `#111e28` for the arena, `#173b3d` for selected/live controls, `#3a3022` for simulation, and `#19393b` for messages. Primary button text is `#1a3029`; descriptive text is `#c1d0de`. These values are present in their component rules rather than a second palette.
 
-Measured by the final rendered probe at 390: primary button text/fill 11.90:1, title text/background 14.97:1, gold title/background 11.46:1, lead/background 10.66:1, telemetry secondary text/background 8.16:1 and simulated badge 8.82:1. These measurements concern those DOM pairs, not every pixel of Canvas art. Live, simulated, selected and earned states include words or symbols in addition to color.
+Measured by the final rendered probe at 390: primary button text/fill 11.90:1, title text/background 14.97:1, gold title/background 11.46:1, lead/background 10.66:1, telemetry secondary text/background 8.16:1 and simulated badge 8.82:1. The updated footer uses `--muted` on `--bg` and measured 9.19:1 at both 390 and 1440. These measurements concern those DOM pairs, not every pixel of Canvas art. Live, simulated, selected and earned states include words or symbols in addition to color.
 
 Canvas biome definitions live in `game.js` (`biomes`): copper Wheel Core, violet Mempool Tunnels and jade Settlement Vaults. The game uses hue and shape together: relay rings, vault rectangles, fragment diamonds and distinct enemy silhouettes.
 
@@ -94,4 +94,4 @@ CSS motion is enabled only for `prefers-reduced-motion: no-preference`. Button f
 - For another information view, reuse `.modal > .panel`, a named h2 and the existing guide/codex state handling. Add any new modal to focus/background management and validate its keyboard and touch return path.
 - Do not put tracked uppercase labels above headings, nest decorative cards, or replace essential labels with color alone. Do not hide failed live data behind a fabricated “Live” state.
 
-Design review used the pinned Better Interface guide, adapted from [Jakub Krehel’s Better Interface](https://github.com/jakubkrehel/skills/tree/267330e1adfc66a718fb65fa6918c1f06d0a689e/skills/better-interface) (MIT). The documentation method follows [Paul Bakaus’s Impeccable document reference](https://github.com/pbakaus/impeccable/blob/9d715cc4f5564a990ca8345abfdd5df6dc9b41c8/skill/reference/document.md) (Apache-2.0). Coverage and limitations are in `artifacts/validation.md`.
+Design review used the pinned Better Interface guide, adapted from [Jakub Krehel’s Better Interface](https://github.com/jakubkrehel/skills/tree/267330e1adfc66a718fb65fa6918c1f06d0a689e/skills/better-interface) (MIT). The documentation method follows [Paul Bakaus’s Impeccable document reference](https://github.com/pbakaus/impeccable/blob/9d715cc4f5564a990ca8345abfdd5df6dc9b41c8/skill/reference/document.md) (Apache-2.0). Coverage and limitations are in [TESTING.md](TESTING.md), with supplemental evidence in `artifacts/`.
